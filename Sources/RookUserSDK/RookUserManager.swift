@@ -15,6 +15,9 @@ final public class RookUserManager {
   
   private let userManager: RookUsersManger = RookUsersManger()
   
+  public init() {
+  }
+  
   /// Registers a new user id in the rook server and it will be stored locally
   ///
   /// This method register a new user that will be available for `RookAppleHealthExtraction` and `RookTranmission` sdk
