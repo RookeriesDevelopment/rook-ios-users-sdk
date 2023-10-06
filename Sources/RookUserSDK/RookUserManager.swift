@@ -10,7 +10,7 @@ import RookUsersSDK
 
 /// The Access point to register a user in the rook server
 ///
-////// Use `RookUserManager` to register a user id, this user id will be available for `RookAppleHealthExtraction` and `RookTranmission` sdk
+////// Use `RookUserManager` to register a user id, this user id will be available for `RookAppleHealthExtraction` and `RookTransmission` sdk
 final public class RookUserManager {
   
   private let userManager: RookUsersManger = RookUsersManger()
@@ -20,7 +20,7 @@ final public class RookUserManager {
   
   /// Registers a new user id in the rook server and it will be stored locally
   ///
-  /// This method register a new user that will be available for `RookAppleHealthExtraction` and `RookTranmission` sdk
+  /// This method register a new user that will be available for `RookAppleHealthExtraction` and `RookTransmission` sdk
   public func registerRookUser(with id: String,
                                completion: @escaping (Result<Bool, Error>) -> Void) {
     userManager.registerRookUser(with: id, completion: completion)
