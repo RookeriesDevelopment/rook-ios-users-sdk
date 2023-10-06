@@ -16,12 +16,12 @@ public final class RookUserConfiguration {
   ///Returns the shared RookUserConfiguration object
   public static let shared: RookUserConfiguration = RookUserConfiguration()
   
-  ///Sets the configuration with  your`urlAPI`, `clientUUID` and `secreteKey` parameters
+  ///Sets the configuration with  your `clientUUID` and `secreteKey` parameters
   ///
   ///- parameter urlAPI : `String`  the url it could be for dev or production environment
   ///- parameter clientUUID : `String`  your client uuid
   ///- parameter secretKey : `String` your secrete key
-  public func setConfiguration(urlAPI: String, clientUUID: String, secretKey: String) {
+  public func setConfiguration(clientUUID: String, secretKey: String) {
     RookUsersConfiguration.shared.setConfiguration(
       clientUUID: clientUUID,
       secretKey: secretKey)
