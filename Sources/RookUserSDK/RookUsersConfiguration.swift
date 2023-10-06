@@ -13,7 +13,7 @@ import RookUsersSDK
 /// Use the shared property to access the class
 public final class RookUserConfiguration {
   
-  ///Returns the shated RookUserConfiguration object
+  ///Returns the shared RookUserConfiguration object
   public static let shared: RookUserConfiguration = RookUserConfiguration()
   
   ///Sets the configuration with  your`urlAPI`, `clientUUID` and `secreteKey` parameters
@@ -22,15 +22,21 @@ public final class RookUserConfiguration {
   ///- parameter clientUUID : `String`  your client uuid
   ///- parameter secretKey : `String` your secrete key
   public func setConfiguration(urlAPI: String, clientUUID: String, secretKey: String) {
-    RookUsersConfiguration.shared.setConfiration(
-      urlAPI: urlAPI,
+    RookUsersConfiguration.shared.setConfiguration(
       clientUUID: clientUUID,
       secretKey: secretKey)
   }
   
-  /// Initializes the sdk and validates if the credetials are correct
+  ///Sets the configuration to the environment given.
   ///
-  /// - parameter completion : contains a bool indicating if the process was successfull or and  error.
+  ///- parameter environment : `RookUsersEnvironment`  the environment to work
+  public func setEnvironment(_ environment: RookUsersEnvironment) {
+    RookUsersConfiguration.shared.setEnvironment(environment)
+  }
+  
+  /// Initializes the sdk and validates if the credentials are correct
+  ///
+  /// - parameter completion : contains a bool indicating if the process was successful or and  error.
   public func initRookUsers(completion: @escaping (Result<Bool, Error>) -> Void) {
     RookUsersConfiguration.shared.initRookUsers(completion: completion)
   }
