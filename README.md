@@ -17,10 +17,9 @@ To add a package dependency to your Xcode project, select File > Swift Packages 
 
 To configure Rook Users, you need to follow this steps:
 
-1. Import th apple health sdk
+1. Import the users sdk
 
 ```swift
-import RookConnectTransmission
 import RookUsersSDK
 ```
 
@@ -31,7 +30,7 @@ import RookUsersSDK
 func application(_ application: UIApplication
                  didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     
-    RookUsersConfiguration.shared.setConfiration(
+    RookUsersConfiguration.shared.setConfiguration(
       clientUUID: "9593d0ec-2222-3333-444-10d3f4f43127",
       secretKey: "YdwdwQ3mP0zey5nZ9w3WHQMfijewjslfjleis")
     
@@ -106,8 +105,27 @@ func removeUser() {
 
 * `removeUser` will only delete from local storage, the User will remain registered
   on server.
+  
+  ### Removing registered Users from rook server
+  
+  This SDK already manages the case were you need to remove the user from the rook server and it will remove the id stored locally
+  
+  `func removeUserFromRook(completion: @escaping (Result<Bool, Error>) -> Void)`
+  
+  ```swift
+func removeUserFromRook() {
+    userManager.removeUserFromRook() { result in
+      switch result {
+      case .success(let success):
+        debugPrint("user deleted")
+      case .failure(let failure):
+        debugPrint("error while removing user \(failure)")
+      }
+    }
+  }
+```
 
 ## Additional information
 
 The first time your Users use this SDK they MUST have an active internet connection otherwise
-the request will fail and the userID won't be registered or stored.
+the request will fail and the userID won't be registered and stored.
