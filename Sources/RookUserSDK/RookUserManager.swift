@@ -33,7 +33,14 @@ final public class RookUserManager {
   
   /// removes the user id stored locally.
   public func removeUser(completion: @escaping (Result<Bool, Error>) -> Void) {
-    userManager.removeUser(compeltion: completion)
+    userManager.removeUser(completion: completion)
+  }
+  
+  /// remove a user from rook server and removes the user stored locally
+  ///
+  /// To use this method it is necessary to register a user first
+  public func removeUserFromRook(completion: @escaping (Result<Bool, Error>) -> Void) {
+    userManager.removeUserFromRook(completion: completion)
   }
   
 }
